@@ -2,10 +2,6 @@
 
 > React component with [zxcvbn](https://github.com/dropbox/zxcvbn)
 
-## License
-
-[MIT](https://github.com/RodrigoWP/licenses/blob/master/LICENSE) &copy; Rodrigo Wippel
-
 ## Dependencies:
 
 - Node.js `>=` v8;
@@ -21,3 +17,7 @@
 - `yarn build (or npm run build)`: Build project to production
 - `yarn storybook (or npm run storybook)`: Run Storybook on `6006` port
 - `yarn storybook:build`: Build Storybook to static files
+
+## License
+
+[MIT](https://github.com/RodrigoWP/licenses/blob/master/LICENSE) &copy; Rodrigo Wippel
