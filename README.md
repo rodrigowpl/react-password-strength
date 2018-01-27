@@ -1,5 +1,11 @@
 # react-password-strength
 
+> React component with [zxcvbn](https://github.com/dropbox/zxcvbn)
+
+## License
+
+[MIT](https://github.com/RodrigoWP/licenses/blob/master/LICENSE) &copy; Rodrigo Wippel
+
 ## Dependencies:
 
 - Node.js `>=` v8;
