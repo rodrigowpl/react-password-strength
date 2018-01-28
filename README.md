@@ -2,6 +2,15 @@
 
 > React component with [zxcvbn](https://github.com/dropbox/zxcvbn)
 
+Usage:
+```
+<ReactPasswordStrength
+  passwordValue='whatever-password'
+/>
+```
+
+You can see running example: https://rodrigowp.github.io/react-password-strength/
+
 ## Dependencies:
 
 - Node.js `>=` v8;
