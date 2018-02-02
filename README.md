@@ -50,6 +50,7 @@ import ReactPasswordStrength from '@rodrigowpl/react-password-strength'
 - `yarn build (or npm run build)`: Build project to production
 - `yarn storybook (or npm run storybook)`: Run Storybook on `6006` port
 - `yarn storybook:build`: Build Storybook to static files
+- `npm run pub`: Publish to npm
 
 ## License
 
