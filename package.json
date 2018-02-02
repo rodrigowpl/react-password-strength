@@ -1,8 +1,21 @@
 {
+  "name": "@rodrigowpl/react-password-strength",
+  "version": "1.0.0",
+  "description": "React component based on dropbox algorithm for Password Strength Estimation",
+  "browser": "dist/main.js",
+  "main": "dist/main.js",
+  "module": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodrigoWP/react-password-strength"
+  },
+  "author": "Rodrigo Wippel",
+  "license": "MIT",
   "scripts": {
     "storybook": "start-storybook -p 6006 -c storybook",
     "storybook:build": "cross-env NODE_ENV=production BABEL_ENV=production build-storybook -c storybook -o docs",
-    "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --progress --config webpack.config -p"
+    "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --progress --config webpack.config -p",
+    "pub": "npm publish --access=public"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.9",

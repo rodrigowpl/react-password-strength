@@ -3,9 +3,9 @@ const CleanPlugin = require('clean-webpack-plugin')
 const { join } = require('path')
 
 const paths = {
-  root: join(__dirname, '..'),
-  src: join(__dirname, '..', 'src'),
-  dist: join(__dirname, '..', 'dist')
+  root: join(__dirname),
+  src: join(__dirname, 'src'),
+  dist: join(__dirname, 'dist')
 }
 
 module.exports = {
@@ -15,7 +15,8 @@ module.exports = {
 
   output: {
     path: paths.dist,
-    filename: '[name]-[chunkhash].js'
+    filename: 'main.js',
+    libraryTarget: 'umd'
   },
 
   plugins: [
@@ -27,23 +28,6 @@ module.exports = {
       'process.env': {
         'NODE_ENV': '"production"'
       }
-    }),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'react-build',
-      chunks: ['main'],
-      minChunks: ({ resource }) => (
-        /node_modules\/(react(-dom)?|fbjs)\//.test(resource) ||
-        /node_modules\/preact(-compat)?\//.test(resource)
-      )
-    }),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      chunks: ['main'],
-      minChunks: ({ resource }) => (
-        /node_modules/.test(resource)
-      )
     }),
 
     new webpack.optimize.UglifyJsPlugin({
