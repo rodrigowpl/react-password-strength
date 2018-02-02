@@ -4,6 +4,8 @@
 
 You can see running example: https://rodrigowp.github.io/react-password-strength/
 
+![](https://github.com/RodrigoWP/react-password-strength/blob/master/example.gif)
+
 ### Installation
 
 ### for npm users
