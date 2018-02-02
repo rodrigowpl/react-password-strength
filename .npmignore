@@ -2,3 +2,4 @@ storybook
 webpack.config.js
 yarn.lock
 docs
+example.gif
