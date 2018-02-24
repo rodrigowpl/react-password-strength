@@ -44,7 +44,8 @@ import ReactPasswordStrength from '@rodrigowpl/react-password-strength'
 ### Up and running
 
 - Install dependencies: `yarn` (or `npm i`);
-- Run `yarn start` (or `npm run start`) to develop on `http://localhost:3000`
+- Run `yarn storybook` (or `npm run storybook`) to storybook on `http://localhost:6006`
+- Run `yarn storybook:build` (or `npm run storybook:build`) for docs build (files will be) generated in the `docs` directory)
 - Run `yarn build` (or `npm run build`) for production build (files will be generated in the `dist` directory)
 
 ### Scripts
