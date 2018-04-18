@@ -1,9 +1,9 @@
 export const STRENGTH_TEXT = {
-  0: 'Muito fraca',
-  1: 'Fraca',
-  2: 'Mais ou menos',
-  3: 'Forte',
-  4: 'Muito forte'
+  0: 'Very Weak',
+  1: 'Weak',
+  2: 'Good',
+  3: 'Strong',
+  4: 'Very Strong'
 }
 
 export const STRENGTH_COLOR = {
