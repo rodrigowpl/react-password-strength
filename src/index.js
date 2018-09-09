@@ -51,7 +51,8 @@ const ReactPasswordStrength = ({ width = 300, passwordValue, strengthColors, str
 ReactPasswordStrength.propTypes = {
   width: PropTypes.number,
   passwordValue: PropTypes.string.isRequired,
-  strengthColors: PropTypes.object
+  strengthColors: PropTypes.object,
+  strengthTexts: PropTypes.object,
 }
 
 export default ReactPasswordStrength
