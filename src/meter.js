@@ -13,15 +13,15 @@ const MeterStyled = styled.div`
   }
 `
 
-const Meter = ({ meterValue, width }) => (
+const Meter = ({ backgroundColor, width }) => (
   <MeterStyled
     width={width}
-    backgroundColor={STRENGTH_COLOR[meterValue]}
+    backgroundColor={backgroundColor}
   />
 )
 
 Meter.propTypes = {
-  meterValue: PropTypes.number.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired
 }
 

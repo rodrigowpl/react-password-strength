@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import zxcvbn from 'zxcvbn'
 import styled from 'styled-components'
-import { STRENGTH_COLOR, STRENGTH_TEXT } from './constants'
-import MetersOverlay from './meters-overlay'
+import { STRENGTH_TEXT } from './constants'
 import Meters from './meters'
+import { getStrengthColor } from './utils/functions';
 
 const ReactPasswordStrengthStyled = styled.div`
   width: 300px;
@@ -20,29 +20,24 @@ const ReactPasswordStrengthStyled = styled.div`
   }
 `
 
-const ReactPasswordStrength = ({ width = 300, passwordValue }) => {
-  const { score } =  zxcvbn(passwordValue)
+const ReactPasswordStrength = ({ width = 300, passwordValue, strengthColors }) => {
+  const { score } = zxcvbn(passwordValue)
   const maxMeters = 4
   const meterWidth = width / maxMeters
-  const isVeryWeek = score === 0
+  const strengthColor = getStrengthColor(score, strengthColors)
+  const realScore = score === 0 ? maxMeters : score
 
   return (
     <ReactPasswordStrengthStyled>
       <div className='meters'>
-        {isVeryWeek ? (
-          <MetersOverlay
-            maxMeters={maxMeters}
-            meterWidth={meterWidth}
-          />
-        ) : (
-          <Meters
-            meterValue={score}
-            meterWidth={meterWidth}
-          />
-        )}
+        <Meters
+          meterValue={realScore}
+          meterWidth={meterWidth}
+          backgroundColor={strengthColor}
+        />
       </div>
       {passwordValue &&
-        <span style={{ color: STRENGTH_COLOR[score] }}>
+        <span style={{ color: strengthColor }}>
           {STRENGTH_TEXT[score]}
         </span>
       }
