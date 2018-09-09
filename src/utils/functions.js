@@ -1,17 +1,12 @@
-import { pipe, prop } from 'ramda'
-import { STRENGTH_COLOR } from '../constants';
+import { pipe, prop, defaultTo, curry } from 'ramda'
+import { STRENGTH_COLOR, STRENGTH_TEXT } from '../constants';
 
-/**
- * 
- * @param {object|undefined} customColors 
- */
-export const getColorConfig = customColors => customColors || STRENGTH_COLOR
 
-/**
- * @param {number} score
- * @param {object|undefined} customColors
- */
-export const getStrengthColor = (score, customColors) => pipe(
-  getColorConfig,
+export const getConfigValue = curry((defaultConfig, score, customConfig) => pipe(
+  defaultTo(defaultConfig),
   prop(score)
-)(customColors)
+)(customConfig))
+
+export const getStrengthColor = getConfigValue(STRENGTH_COLOR)
+
+export const getStrengthText = getConfigValue(STRENGTH_TEXT)

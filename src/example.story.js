@@ -5,7 +5,7 @@ import ReactPasswordStrength from './index'
 const stories = storiesOf('react-password-strength', module)
 
 stories.add('Simple example', () => {
-  class ExampleUsage extends PureComponent {
+  class SimpleExample extends PureComponent {
     state = {
       passwordValue: ''
     }
@@ -37,21 +37,29 @@ stories.add('Simple example', () => {
     }
   }
 
-  return <ExampleUsage />
+  return <SimpleExample />
 })
 
-stories.add('With custom colors', () => {
-  class ExampleUsage extends PureComponent {
+stories.add('With custom colors and texts', () => {
+  class CustomExample extends PureComponent {
     state = {
       passwordValue: ''
     }
 
+    customTexts = {
+      0: 'Very easy',
+      1: 'Easy',
+      2: 'Okay',
+      3: 'Nice',
+      4: 'Really nice'
+    }
+
     customColors = {
-      0: 'red',
-      1: 'green',
-      2: 'purple',
-      3: 'blue',
-      4: 'pink'
+      0: 'gray',
+      1: 'blue',
+      2: 'darkblue',
+      3: 'lightgreen',
+      4: 'green'
     }
 
     handleChange = (e) => {
@@ -76,11 +84,12 @@ stories.add('With custom colors', () => {
           <ReactPasswordStrength
             passwordValue={passwordValue}
             strengthColors={this.customColors}
+            strengthTexts={this.customTexts}
           />
         </div>
       )
     }
   }
 
-  return <ExampleUsage />
+  return <CustomExample />
 })
