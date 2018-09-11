@@ -1,11 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { number, string, object } from 'prop-types'
 import zxcvbn from 'zxcvbn'
 import styled from 'styled-components'
-import Meters from './meters'
-import { getStrengthColor, getStrengthText } from './utils/functions';
 
-const ReactPasswordStrengthStyled = styled.div`
+import Meters from './meters'
+import { getStrengthColor, getStrengthText } from './utils/functions'
+
+const PasswordStrengthStyled = styled.div`
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -23,8 +24,8 @@ const StrengthLabelStyled = styled.span`
   color: ${props => props.color};
 `
 
-const ReactPasswordStrength = ({ width = 300, passwordValue, strengthColors, strengthTexts }) => {
-  const { score } = zxcvbn(passwordValue)
+const PasswordStrength = ({ width = 300, value, strengthColors, strengthTexts }) => {
+  const { score } = zxcvbn(value)
   const maxMeters = 4
   const meterWidth = width / maxMeters
   const strengthColor = getStrengthColor(score, strengthColors)
@@ -32,7 +33,7 @@ const ReactPasswordStrength = ({ width = 300, passwordValue, strengthColors, str
   const meterValue = score === 0 ? maxMeters : score
 
   return (
-    <ReactPasswordStrengthStyled>
+    <PasswordStrengthStyled>
       <div className='meters'>
         <Meters
           meterValue={meterValue}
@@ -40,19 +41,20 @@ const ReactPasswordStrength = ({ width = 300, passwordValue, strengthColors, str
           backgroundColor={strengthColor}
         />
       </div>
-      {passwordValue &&
+      {value &&
         <StrengthLabelStyled color={strengthColor}>
           {strengthText}
-        </StrengthLabelStyled>}
-    </ReactPasswordStrengthStyled>
+        </StrengthLabelStyled>
+      }
+    </PasswordStrengthStyled>
   )
 }
 
-ReactPasswordStrength.propTypes = {
-  width: PropTypes.number,
-  passwordValue: PropTypes.string.isRequired,
-  strengthColors: PropTypes.object,
-  strengthTexts: PropTypes.object,
+PasswordStrength.propTypes = {
+  width: number,
+  value: string.isRequired,
+  strengthColors: object,
+  strengthTexts: object,
 }
 
-export default ReactPasswordStrength
+export { PasswordStrength }

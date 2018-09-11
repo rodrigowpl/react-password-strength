@@ -21,10 +21,10 @@ yarn add @rodrigowpl/react-password-strength
 ## Usage
 
 ```jsx
-import ReactPasswordStrength from '@rodrigowpl/react-password-strength'
+import { PasswordStrength } from '@rodrigowpl/react-password-strength'
 
-<ReactPasswordStrength
-  passwordValue='whatever-password'
+<PasswordStrength
+  value='whatever-password'
 />
 ```
 
@@ -33,7 +33,7 @@ import ReactPasswordStrength from '@rodrigowpl/react-password-strength'
 | Property | Type | Default | Description |
 |:---|:---|:---|:---|
 | width | number | 300 | Set width of container element
-| passwordValue | string | undefined | Value that will be validate
+| value | string | undefined | Value that will be validate
 | strengthColors | object | [STRENGTH_COLOR](https://github.com/RodrigoWP/react-password-strength/blob/master/src/constants.js) | Custom strength colors
 | strengthText | object | [STRENGTH_TEXT](https://github.com/RodrigoWP/react-password-strength/blob/master/src/constants.js) | Custom strength texts
 

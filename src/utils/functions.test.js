@@ -2,7 +2,6 @@ import { getStrengthColor, getConfigValue, getStrengthText } from './functions'
 import { STRENGTH_COLOR, STRENGTH_TEXT } from '../constants'
 
 describe('functions', () => {
-
   describe('functions.getConfigValue', () => {
     const DEFAULT_CONFIG = { 1: 'first default option', 2: 'second default option' }
     const CUSTOM_CONFIG = { 1: 'first custom option', 2: 'second custom option' }
@@ -20,17 +19,15 @@ describe('functions', () => {
 
       expect(defaultValue).toBe(CUSTOM_CONFIG[score])
     })
-
-
   })
 
   describe('functions.getStrenghColor', () => {
 
     const CUSTOM_COLORS = {
       0: 'red',
-      0: 'green',
-      0: 'pink',
-      0: 'blue',
+      1: 'green',
+      2: 'pink',
+      3: 'blue',
     }
 
     test('should return the custom color', () => {
@@ -46,16 +43,14 @@ describe('functions', () => {
 
       expect(color).toBe(STRENGTH_COLOR[score])
     })
-
   })
 
   describe('functions.getStrengthText', () => {
-
     const CUSTOM_TEXTS = {
       0: 'Very Easy',
-      0: 'Okay',
-      0: 'Nice',
-      0: 'Really nice',
+      1: 'Okay',
+      2: 'Nice',
+      3: 'Really nice',
     }
 
     test('should return text from the custom config', () => {
@@ -71,7 +66,5 @@ describe('functions', () => {
 
       expect(color).toBe(STRENGTH_TEXT[score])
     })
-
   })
-
 })

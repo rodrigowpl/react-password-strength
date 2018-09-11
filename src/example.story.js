@@ -1,25 +1,26 @@
 import React, { PureComponent } from 'react'
 import { storiesOf } from '@storybook/react'
-import ReactPasswordStrength from './index'
+
+import { PasswordStrength } from './index'
 
 const stories = storiesOf('react-password-strength', module)
 
 stories.add('Simple example', () => {
   class SimpleExample extends PureComponent {
     state = {
-      passwordValue: ''
+      value: ''
     }
 
     handleChange = (e) => {
       const { value } = e.target
 
       this.setState({
-        passwordValue: value
+        value: value
       })
     }
 
     render () {
-      const { passwordValue } = this.state
+      const { value } = this.state
 
       return (
         <div>
@@ -27,10 +28,10 @@ stories.add('Simple example', () => {
             placeholder='Enter password'
             style={{ width: '300px', marginBottom: '3px' }}
             onChange={this.handleChange}
-            value={passwordValue}
+            value={value}
           />
-          <ReactPasswordStrength
-            passwordValue={passwordValue}
+          <PasswordStrength
+            value={value}
           />
         </div>
       )
@@ -43,7 +44,7 @@ stories.add('Simple example', () => {
 stories.add('With custom colors and texts', () => {
   class CustomExample extends PureComponent {
     state = {
-      passwordValue: ''
+      value: ''
     }
 
     customTexts = {
@@ -66,12 +67,12 @@ stories.add('With custom colors and texts', () => {
       const { value } = e.target
 
       this.setState({
-        passwordValue: value
+        value: value
       })
     }
 
     render () {
-      const { passwordValue } = this.state
+      const { value } = this.state
 
       return (
         <div>
@@ -79,10 +80,10 @@ stories.add('With custom colors and texts', () => {
             placeholder='Enter password'
             style={{ width: '300px', marginBottom: '3px' }}
             onChange={this.handleChange}
-            value={passwordValue}
+            value={value}
           />
-          <ReactPasswordStrength
-            passwordValue={passwordValue}
+          <PasswordStrength
+            value={value}
             strengthColors={this.customColors}
             strengthTexts={this.customTexts}
           />
