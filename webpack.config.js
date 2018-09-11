@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const CleanPlugin = require('clean-webpack-plugin')
 const { join } = require('path')
 
@@ -13,6 +12,8 @@ module.exports = {
     main: join(paths.src, 'index')
   },
 
+  mode: 'production',
+
   output: {
     path: paths.dist,
     filename: 'main.js',
@@ -22,16 +23,6 @@ module.exports = {
   plugins: [
     new CleanPlugin(['dist'], {
       root: paths.root
-    }),
-
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': '"production"'
-      }
-    }),
-
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true
     })
   ],
 
@@ -41,17 +32,7 @@ module.exports = {
         test: /\.js$/,
         include: paths.src,
         use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: [['env', { modules: false }], 'stage-0', 'react'],
-            plugins: [
-              ['transform-runtime', {
-                helpers: false,
-                polyfill: false,
-                regenerator: true
-              }]
-            ]
-          }
+          loader: 'babel-loader'
         }]
       }
     ]
