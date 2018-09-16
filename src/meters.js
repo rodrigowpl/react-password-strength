@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Meter from './meter'
 
 const Meters = ({ meterValue, meterWidth, backgroundColor }) => (
-  Array.from(Array(meterValue).keys()).map(index => (
+  Array.from({ length: meterValue }, (_, index) => (
     <Meter
       key={index}
       width={meterWidth}
